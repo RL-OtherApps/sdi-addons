@@ -30,8 +30,8 @@
     ],
     'external_dependencies': {
         'python': [
-            'mail_validation',
-            'py3DNS',
+            'validate_email',
+            'py3dns',
         ],
     },
 }
