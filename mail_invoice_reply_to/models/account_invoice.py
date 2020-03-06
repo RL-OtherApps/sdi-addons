@@ -11,5 +11,7 @@ class AccountInvoice(models.Model):
     def _notify_get_reply_to(
             self, default=None, records=None, company=None, doc_names=None):
         import wdb;wdb.set_trace()
+        res = super()._notify_get_reply_to(
+            self, default=None, records=None, company=None, doc_names=None)
         res = {account.id: self.env.user.id for account in self}
         return res
