@@ -28,7 +28,4 @@
     'depends': [
         'account',
     ],
-    'data': [
-        'views/account_invoice_views.xml',
-    ],
 }
