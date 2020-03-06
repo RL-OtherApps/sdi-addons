@@ -13,14 +13,17 @@ class ResPartner(models.Model):
     def write(self, vals):
         res = super().write(vals)
         errors = []
-        if 'email' in vals and not validate_email(vals.get('email')):
+        import wdb;wdb.set_trace()
+        if 'email' in vals and not validate_email(vals['email']):
             errors.append('- Email has not a correct format')
         elif 'email' in vals and not validate_email(
-                vals.get('email'), check_mx=True):
+                vals['email'], check_mx=True):
             errors.append('- The email domain has not SMTP server')
         elif 'email' in vals and not validate_email(
-                vals.get('email'), verify=True):
+                vals['email'], verify=True):
             errors.append('- The email not really exists')
+        if errors:
+            validations = '\n'.join(errors)
             raise UserError(_(
-                'Sorry but the email does not have a correct format'))
+                'Error in the email field: \n%s' % validations))
         return res

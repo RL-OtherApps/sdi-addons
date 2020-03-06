@@ -31,7 +31,6 @@
     'external_dependencies': {
         'python': [
             'validate_email',
-            'py3dns',
         ],
     },
 }
